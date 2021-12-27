@@ -31,15 +31,19 @@ public class ControladorTarjetaTest extends TestCase {
             this.testSonTarjetasIguales();
             System.out.println("------------------------------------------");
 
+            System.out.println("Item 5");
+            this.testGetTasaMarcaImporteByOperacion();
+            System.out.println("------------------------------------------");
+
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
     }
 
     public void testCrearMarca(){
-        Controller.getInstancia().crearMarca("VISA", (float) 0.3);
-        Controller.getInstancia().crearMarca("NARA", (float) 0.3);
-        Controller.getInstancia().crearMarca("AMEX", (float) 0.3);
+        Controller.getInstancia().crearMarca("VISA", "VISA");
+        Controller.getInstancia().crearMarca("NARA", "NARA");
+        Controller.getInstancia().crearMarca("AMEX", "AMEX");
     }
 
     public void testCrearTarjeta(){
@@ -103,6 +107,14 @@ public class ControladorTarjetaTest extends TestCase {
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    public void testGetTasaMarcaImporteByOperacion(){
+        try {
+            Controller.getInstancia().getTasaMarcaImporteByOperacion(0);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 

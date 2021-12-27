@@ -5,6 +5,8 @@ import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.TarjetaDTO;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Marca;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Operacion;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tarjeta;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tasa.Tasa;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tasa.TasaFactory;
 import org.apache.tomcat.jni.Local;
 
 import java.time.LocalDate;
@@ -27,7 +29,8 @@ public class Controller {
         return instancia;
     }
 
-    public void crearMarca(String nombre, float tasa){
+    public void crearMarca(String nombre, String nombre_marca){
+        Tasa tasa = TasaFactory.getTasa(nombre_marca);
         Marca marca = new Marca(nombre,tasa);
         marcas.add(marca);
     }
@@ -67,6 +70,14 @@ public class Controller {
     public boolean isOperacionValida(int operacion_id) throws Exception {
         Operacion operacion = this.getOperacionById(operacion_id);
         return operacion.isValida();
+    }
+
+    public void getTasaMarcaImporteByOperacion(int operacion_id) throws Exception {
+        Operacion operacion = this.getOperacionById(operacion_id);
+        System.out.println("Operacion "+operacion_id+"\n"+
+                "Tasa: "+operacion.getTarjeta().getMarca().getTasa().calcularTasa(LocalDate.now())+"\n"+
+                "Marca: "+operacion.getTarjeta().getMarca().getNombre()+"\n"+
+                "Importe: "+operacion.getImporte());
     }
 
     private Marca getMarcaById(int id) throws Exception {

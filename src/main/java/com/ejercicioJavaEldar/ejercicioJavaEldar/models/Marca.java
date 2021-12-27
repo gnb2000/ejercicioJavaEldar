@@ -1,15 +1,18 @@
 package com.ejercicioJavaEldar.ejercicioJavaEldar.models;
 
 import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.MarcaDTO;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tasa.Tasa;
+
+import java.time.LocalDate;
 
 public class Marca {
 
     private static int idStatic = 0;
     private int id;
     private String nombre;
-    private float tasa;
+    private Tasa tasa;
 
-    public Marca(String nombre, float tasa) {
+    public Marca(String nombre, Tasa tasa) {
         this.id = idStatic;
         idStatic++;
         this.nombre = nombre;
@@ -24,11 +27,11 @@ public class Marca {
         this.nombre = nombre;
     }
 
-    public float getTasa() {
+    public Tasa getTasa() {
         return tasa;
     }
 
-    public void setTasa(float tasa) {
+    public void setTasa(Tasa tasa) {
         this.tasa = tasa;
     }
 
@@ -41,7 +44,7 @@ public class Marca {
     }
 
     public MarcaDTO toDTO(){
-        return new MarcaDTO(this.id,this.nombre,this.tasa);
+        return new MarcaDTO(this.id,this.nombre,this.tasa.calcularTasa(LocalDate.now()));
     }
 
     @Override
