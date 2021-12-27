@@ -54,14 +54,14 @@ public class Operacion {
 
     public boolean isValida(){
         if (this.importe < 1000){
-            return false;
-        } else {
             return true;
+        } else {
+            return false;
         }
     }
 
     public OperacionDTO toDTO(){
-        return new OperacionDTO(this.id,this.tarjeta.getNroTarjeta(),this.importe,this.fecha);
+        return new OperacionDTO(this.id,this.tarjeta.getMarca().getNombre(),this.importe,this.fecha,this.getTarjeta().getMarca().getTasa().calcularTasa(LocalDate.now()));
     }
 
     @Override

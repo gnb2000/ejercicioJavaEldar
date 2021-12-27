@@ -72,13 +72,13 @@ public class Controller {
         return operacion.isValida();
     }
 
-    public void getTasaMarcaImporteByOperacion(int operacion_id) throws Exception {
+    public OperacionDTO getTasaMarcaImporteByOperacion(int operacion_id) throws Exception {
         Operacion operacion = this.getOperacionById(operacion_id);
-        System.out.println("Operacion "+operacion_id+"\n"+
-                "Tasa: "+operacion.getTarjeta().getMarca().getTasa().calcularTasa(LocalDate.now())+"\n"+
-                "Marca: "+operacion.getTarjeta().getMarca().getNombre()+"\n"+
-                "Importe: "+operacion.getImporte());
+
+        return operacion.toDTO();
     }
+
+
 
     private Marca getMarcaById(int id) throws Exception {
         for (Marca marca : marcas){

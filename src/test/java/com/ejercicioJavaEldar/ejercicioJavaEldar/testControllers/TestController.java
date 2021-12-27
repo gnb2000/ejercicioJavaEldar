@@ -1,13 +1,14 @@
 package com.ejercicioJavaEldar.ejercicioJavaEldar.testControllers;
 
 import com.ejercicioJavaEldar.ejercicioJavaEldar.controllers.Controller;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.OperacionDTO;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.TarjetaDTO;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Marca;
 import junit.framework.TestCase;
 
 import java.time.LocalDate;
 
-public class ControladorTarjetaTest extends TestCase {
+public class TestController extends TestCase {
 
     public void testPrincipal(){
         try{
@@ -112,7 +113,12 @@ public class ControladorTarjetaTest extends TestCase {
 
     public void testGetTasaMarcaImporteByOperacion(){
         try {
-            Controller.getInstancia().getTasaMarcaImporteByOperacion(0);
+            OperacionDTO operacion = Controller.getInstancia().getTasaMarcaImporteByOperacion(0);
+            System.out.println("Operacion "+operacion.getId()+"\n"+
+                "Tasa: "+operacion.getTasa()+"\n"+
+                "Marca: "+operacion.getMarca_tarjeta()+"\n"+
+                "Importe: "+operacion.getImporte());
+
         } catch (Exception e) {
             e.printStackTrace();
         }

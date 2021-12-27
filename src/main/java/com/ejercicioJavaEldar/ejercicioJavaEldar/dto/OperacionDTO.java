@@ -7,15 +7,18 @@ import java.time.LocalDate;
 public class OperacionDTO {
 
     private int id;
-    private int nroTarjeta;
+    private String marca_tarjeta;
     private float importe;
     private LocalDate fecha;
+    private float tasa;
 
-    public OperacionDTO(int id, int nroTarjeta, float importe, LocalDate fecha) {
+    public OperacionDTO(int id, String marca_tarjeta, float importe, LocalDate fecha,float tasa) {
         this.id = id;
-        this.nroTarjeta = nroTarjeta;
+        this.marca_tarjeta = marca_tarjeta;
         this.importe = importe;
         this.fecha = fecha;
+        this.tasa = tasa;
+
     }
 
     public int getId() {
@@ -26,12 +29,12 @@ public class OperacionDTO {
         this.id = id;
     }
 
-    public int getTarjeta_id() {
-        return nroTarjeta;
+    public String getMarca_tarjeta() {
+        return marca_tarjeta;
     }
 
-    public void setTarjeta_id(int tarjeta_id) {
-        this.nroTarjeta = tarjeta_id;
+    public void setMarca_tarjeta(String marca_tarjeta) {
+        this.marca_tarjeta = marca_tarjeta;
     }
 
     public float getImporte() {
@@ -50,13 +53,22 @@ public class OperacionDTO {
         this.fecha = fecha;
     }
 
+    public float getTasa() {
+        return tasa;
+    }
+
+    public void setTasa(float tasa) {
+        this.tasa = tasa;
+    }
+
     @Override
     public String toString() {
         return "OperacionDTO{" +
                 "id=" + id +
-                ", tarjeta_id=" + nroTarjeta +
+                ", marca_tarjeta='" + marca_tarjeta + '\'' +
                 ", importe=" + importe +
                 ", fecha=" + fecha +
+                ", tasa=" + tasa +
                 '}';
     }
 }
