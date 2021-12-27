@@ -35,7 +35,7 @@ public class Controller {
         tarjetas.add(tarjeta);
     }
 
-    public TarjetaDTO getTarjetaByNroTarjeta(int nroTarjeta) throws Exception {
+    public TarjetaDTO getTarjetaDTOByNroTarjeta(int nroTarjeta) throws Exception {
         for (Tarjeta tarjeta : tarjetas){
             if (tarjeta.getNroTarjeta() == nroTarjeta){
                 return tarjeta.toDTO();
@@ -44,7 +44,7 @@ public class Controller {
         throw new Exception("No existe una tarjeta con numero de tarjeta: "+nroTarjeta);
     }
 
-    public Marca getMarcaById(int id) throws Exception {
+    private Marca getMarcaById(int id) throws Exception {
         for (Marca marca : marcas){
             if (marca.getId() == id){
                 return marca;
@@ -53,7 +53,27 @@ public class Controller {
         throw new Exception("No existe una marca con id: "+id);
     }
 
-    public boolean
+    private Tarjeta getTarjetaByNroTarjeta(int nroTarjeta) throws Exception {
+        for (Tarjeta tarjeta : tarjetas){
+            if (tarjeta.getNroTarjeta() == nroTarjeta){
+                return tarjeta;
+            }
+        }
+        throw new Exception("No existe una tarjeta con numero de tarjeta: "+nroTarjeta);
+    }
+
+    public boolean isValida(int nroTarjeta) throws Exception {
+        Tarjeta tarjeta = this.getTarjetaByNroTarjeta(nroTarjeta);
+        return tarjeta.isValida();
+    }
+
+    public boolean sonTarjetasIguales(int nroTarjeta1,int nroTarjeta2) throws Exception {
+        Tarjeta tarjeta1 = this.getTarjetaByNroTarjeta(nroTarjeta1);
+        Tarjeta tarjeta2 = this.getTarjetaByNroTarjeta(nroTarjeta2);
+        return tarjeta1.soyEsaTarjeta(tarjeta2);
+    }
+
+
 
 
 }

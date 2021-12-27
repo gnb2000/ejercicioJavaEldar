@@ -64,5 +64,21 @@ public class Tarjeta {
         return new TarjetaDTO(this.marca.getNombre(),this.nroTarjeta,this.cardHolder,this.fechaVenc);
     }
 
+    public boolean isValida(){
+        if (this.fechaVenc.isAfter(LocalDate.now())){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean soyEsaTarjeta(Tarjeta tarjeta){
+        if (this.equals(tarjeta)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 }
