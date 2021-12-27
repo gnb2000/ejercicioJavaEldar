@@ -13,9 +13,14 @@ public class ControladorTarjetaTest extends TestCase {
         try{
             this.testCrearMarca();
             this.testCrearTarjeta();
+            this.testCrearOperacion();
 
             System.out.println("Item 1");
             this.testGetTarjetaByNroTarjeta();
+            System.out.println("------------------------------------------");
+
+            System.out.println("Item 2");
+            this.testIsOperacionValida();
             System.out.println("------------------------------------------");
 
             System.out.println("Item 3");
@@ -48,6 +53,14 @@ public class ControladorTarjetaTest extends TestCase {
         }
     }
 
+    public void testCrearOperacion(){
+        try {
+            Controller.getInstancia().crearOperacion(1,500);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public void testGetTarjetaByNroTarjeta(){
         try {
             TarjetaDTO tarjeta = Controller.getInstancia().getTarjetaDTOByNroTarjeta(1);
@@ -75,6 +88,18 @@ public class ControladorTarjetaTest extends TestCase {
                 System.out.println("Son tarjetas iguales");
             } else {
                 System.out.println("Son tarjetas diferentes");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void testIsOperacionValida(){
+        try {
+            if (Controller.getInstancia().isOperacionValida(0)){
+                System.out.println("La operacion es valida");
+            } else {
+                System.out.println("La operacion NO es valida");
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
