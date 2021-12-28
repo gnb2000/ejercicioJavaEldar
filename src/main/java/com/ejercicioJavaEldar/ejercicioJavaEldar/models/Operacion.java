@@ -12,6 +12,8 @@ public class Operacion {
     private float importe;
     private LocalDate fecha;
 
+    public Operacion(){}
+
     public Operacion(Tarjeta tarjeta, float importe, LocalDate fecha) {
         this.id = numerador;
         this.tarjeta = tarjeta;

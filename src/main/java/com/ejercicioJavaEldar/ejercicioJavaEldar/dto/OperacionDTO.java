@@ -63,7 +63,7 @@ public class OperacionDTO {
 
     @Override
     public String toString() {
-        return "OperacionDTO{" +
+        return "Operacion{" +
                 "id=" + id +
                 ", marca_tarjeta='" + marca_tarjeta + '\'' +
                 ", importe=" + importe +

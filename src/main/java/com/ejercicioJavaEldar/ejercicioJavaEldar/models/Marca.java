@@ -12,6 +12,8 @@ public class Marca {
     private String nombre;
     private Tasa tasa;
 
+    public Marca(){};
+
     public Marca(String nombre, Tasa tasa) {
         this.id = idStatic;
         idStatic++;

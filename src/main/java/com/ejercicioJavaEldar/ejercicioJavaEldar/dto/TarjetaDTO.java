@@ -52,7 +52,7 @@ public class TarjetaDTO {
 
     @Override
     public String toString() {
-        return "TarjetaDTO{" +
+        return "Tarjeta{" +
                 "nombre='" + nombre + '\'' +
                 ", nroTarjeta=" + nroTarjeta +
                 ", cardHolder='" + cardHolder + '\'' +

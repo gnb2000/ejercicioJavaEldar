@@ -38,7 +38,7 @@ public class MarcaDTO {
 
     @Override
     public String toString() {
-        return "MarcaDTO{" +
+        return "Marca{" +
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", tasa=" + tasa +

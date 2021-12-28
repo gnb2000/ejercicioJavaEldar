@@ -11,6 +11,8 @@ public class Tarjeta {
     private String cardHolder;
     private LocalDate fechaVenc;
 
+    public Tarjeta(){};
+
     public Tarjeta(Marca marca, int nroTarjeta, String cardHolder, LocalDate fechaVenc) {
         this.marca = marca;
         this.nroTarjeta = nroTarjeta;

@@ -7,24 +7,22 @@ import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Operacion;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tarjeta;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tasa.Tasa;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tasa.TasaFactory;
-import org.apache.tomcat.jni.Local;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Controller {
+public class Controlador {
 
-    private static Controller instancia;
+    private static Controlador instancia;
     private List<Tarjeta> tarjetas = new ArrayList<Tarjeta>();
     private List<Marca> marcas = new ArrayList<Marca>();
     private List<Operacion> operaciones = new ArrayList<Operacion>();
 
-    private Controller(){};
+    private Controlador() {};
 
-    public static Controller getInstancia(){
+    public static Controlador getInstancia() throws Exception {
         if (instancia == null){
-            instancia = new Controller();
+            instancia = new Controlador();
         }
         return instancia;
     }
@@ -74,7 +72,6 @@ public class Controller {
 
     public OperacionDTO getTasaMarcaImporteByOperacion(int operacion_id) throws Exception {
         Operacion operacion = this.getOperacionById(operacion_id);
-
         return operacion.toDTO();
     }
 
@@ -106,8 +103,4 @@ public class Controller {
         }
         throw new Exception("No existe una operacion con id "+operacion_id);
     }
-
-
-
-
 }
