@@ -11,17 +11,6 @@ public class ControladorRest {
     @Autowired
     private OperacionService operacionService;
 
-    private static ControladorRest instancia;
-
-    private ControladorRest() throws Exception {};
-
-    public static ControladorRest getInstancia() throws Exception {
-        if (instancia == null){
-            instancia = new ControladorRest();
-        }
-        return instancia;
-    }
-
     @RequestMapping("/operacion/{id}")
     public OperacionDTO getOperacionById(@PathVariable int id) throws Exception {
         return operacionService.getOperacionById(id).toDTO();
