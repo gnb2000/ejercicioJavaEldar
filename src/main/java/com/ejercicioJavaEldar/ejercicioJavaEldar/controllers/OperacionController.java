@@ -6,10 +6,7 @@ import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tarjeta;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.services.OperacionService;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.services.TarjetaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
@@ -22,8 +19,12 @@ public class OperacionController {
     @Autowired
     private TarjetaService tarjetaService;
 
-    @RequestMapping("/operacion/{id}")
-    public OperacionDTO getOperacionById(@PathVariable int id) throws Exception {
+    @RequestMapping("/operacion")
+    public OperacionDTO getOperacionByIdREST(@RequestBody Operacion o) throws Exception {
+        return operacionService.getOperacionById(o.getId()).toDTO();
+    }
+
+    public OperacionDTO getOperacionById(int id) throws Exception {
         return operacionService.getOperacionById(id).toDTO();
     }
 
