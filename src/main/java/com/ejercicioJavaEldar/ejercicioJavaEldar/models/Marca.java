@@ -2,21 +2,28 @@ package com.ejercicioJavaEldar.ejercicioJavaEldar.models;
 
 import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.MarcaDTO;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tasa.Tasa;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tasa.TasaFactory;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
+@Entity
+@Table(name = "marcas")
 public class Marca {
 
-    private static int idStatic = 0;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombre;
-    private Tasa tasa;
+    private float tasa;
+
+    @OneToMany(mappedBy = "marca", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Tarjeta> tarjetas;
 
     public Marca(){};
 
-    public Marca(String nombre, Tasa tasa) {
-        this.id = idStatic;
-        idStatic++;
+    public Marca(String nombre, float tasa) {
         this.nombre = nombre;
         this.tasa = tasa;
     }
@@ -29,11 +36,11 @@ public class Marca {
         this.nombre = nombre;
     }
 
-    public Tasa getTasa() {
+    public float getTasa() {
         return tasa;
     }
 
-    public void setTasa(Tasa tasa) {
+    public void setTasa(float tasa) {
         this.tasa = tasa;
     }
 
@@ -45,8 +52,13 @@ public class Marca {
         this.id = id;
     }
 
+    public float calcularTasa(){
+        this.tasa = TasaFactory.getTasa(this.nombre).calcularTasa(LocalDate.now());
+        return tasa;
+    }
+
     public MarcaDTO toDTO(){
-        return new MarcaDTO(this.id,this.nombre,this.tasa.calcularTasa(LocalDate.now()));
+        return new MarcaDTO(this.id,this.nombre,tasa);
     }
 
     @Override

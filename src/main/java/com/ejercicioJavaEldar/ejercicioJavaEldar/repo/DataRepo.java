@@ -16,9 +16,9 @@ public class DataRepo {
 
     private List<Marca> marcas = new ArrayList<Marca>(
             Arrays.asList(
-                    new Marca("VISA", TasaFactory.getTasa("VISA")),
-                    new Marca("NARA", TasaFactory.getTasa("NARA")),
-                    new Marca("AMEX", TasaFactory.getTasa("AMEX"))
+                    new Marca("VISA", TasaFactory.getTasa("VISA").calcularTasa(LocalDate.now())),
+                    new Marca("NARA", TasaFactory.getTasa("NARA").calcularTasa(LocalDate.now())),
+                    new Marca("AMEX", TasaFactory.getTasa("AMEX").calcularTasa(LocalDate.now()))
             )
     );
 

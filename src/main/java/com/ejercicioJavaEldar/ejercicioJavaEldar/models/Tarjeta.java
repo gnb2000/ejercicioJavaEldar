@@ -2,14 +2,26 @@ package com.ejercicioJavaEldar.ejercicioJavaEldar.models;
 
 import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.TarjetaDTO;
 
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
+@Entity
+@Table(name="tarjetas")
 public class Tarjeta {
 
-    private Marca marca;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int nroTarjeta;
+
+    @ManyToOne()
+    @JoinColumn(name = "marca_id")
+    private Marca marca;
+
     private String cardHolder;
     private LocalDate fechaVenc;
+
+    @OneToMany(mappedBy = "tarjeta", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Operacion> operaciones;
 
     public Tarjeta(){};
 

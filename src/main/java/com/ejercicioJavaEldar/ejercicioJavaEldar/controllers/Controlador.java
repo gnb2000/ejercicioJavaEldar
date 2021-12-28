@@ -7,6 +7,8 @@ import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Operacion;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tarjeta;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tasa.Tasa;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tasa.TasaFactory;
+import org.apache.tomcat.jni.Local;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +29,9 @@ public class Controlador {
         return instancia;
     }
 
-    public void crearMarca(String nombre, String nombre_marca){
-        Tasa tasa = TasaFactory.getTasa(nombre_marca);
-        Marca marca = new Marca(nombre,tasa);
+    public void crearMarca(String nombre){
+        Tasa tasa = TasaFactory.getTasa(nombre);
+        Marca marca = new Marca(nombre,tasa.calcularTasa(LocalDate.now()));
         marcas.add(marca);
     }
 

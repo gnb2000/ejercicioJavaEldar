@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ControladorRest {
 
-    @Autowired
+   /* @Autowired
     private OperacionService operacionService;
 
     @RequestMapping("/operacion/{id}")
@@ -19,5 +19,5 @@ public class ControladorRest {
     @ExceptionHandler()
     public String handleException(Exception e){
         return e.getMessage();
-    }
+    }*/
 }

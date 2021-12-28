@@ -2,9 +2,12 @@ package com.ejercicioJavaEldar.ejercicioJavaEldar.testControllers;
 
 import com.ejercicioJavaEldar.ejercicioJavaEldar.controllers.Controlador;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.controllers.ControladorRest;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.controllers.MarcaController;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.OperacionDTO;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.TarjetaDTO;
 import junit.framework.TestCase;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
@@ -42,9 +45,9 @@ public class TestController extends TestCase {
     }
 
     public void testCrearMarca() throws Exception {
-        Controlador.getInstancia().crearMarca("VISA", "VISA");
-        Controlador.getInstancia().crearMarca("NARA", "NARA");
-        Controlador.getInstancia().crearMarca("AMEX", "AMEX");
+        /*Controlador.getInstancia().crearMarca("VISA");
+        Controlador.getInstancia().crearMarca("NARA");
+        Controlador.getInstancia().crearMarca("AMEX");*/
     }
 
     public void testCrearTarjeta(){

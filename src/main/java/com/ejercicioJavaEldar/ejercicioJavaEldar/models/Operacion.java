@@ -2,12 +2,17 @@ package com.ejercicioJavaEldar.ejercicioJavaEldar.models;
 
 import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.OperacionDTO;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name="operaciones")
 public class Operacion {
 
-    private static int numerador = 0;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @ManyToOne()
+    @JoinColumn(name = "tarjeta_id")
     private Tarjeta tarjeta;
     private float importe;
     private LocalDate fecha;
@@ -15,11 +20,9 @@ public class Operacion {
     public Operacion(){}
 
     public Operacion(Tarjeta tarjeta, float importe, LocalDate fecha) {
-        this.id = numerador;
         this.tarjeta = tarjeta;
         this.importe = importe;
         this.fecha = fecha;
-        numerador++;
     }
 
     public int getId() {
@@ -63,7 +66,7 @@ public class Operacion {
     }
 
     public OperacionDTO toDTO(){
-        return new OperacionDTO(this.id,this.tarjeta.getMarca().getNombre(),this.importe,this.fecha,this.getTarjeta().getMarca().getTasa().calcularTasa(LocalDate.now()));
+        return new OperacionDTO(this.id,this.tarjeta.getMarca().getNombre(),this.importe,this.fecha,this.getTarjeta().getMarca().calcularTasa());
     }
 
     @Override
