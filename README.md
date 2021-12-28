@@ -5,6 +5,7 @@ Herramientas utilizadas:
   - Intellij
   - JUnit
   - H2
+  - Maven
   
 Ejercicio 1
   - Ejecutar EjercicioJavaEldarApplication ("src/main/java/com/ejercicioJavaEldar/ejercicioJavaEldar/EjercicioJavaEldarApplication.java")
