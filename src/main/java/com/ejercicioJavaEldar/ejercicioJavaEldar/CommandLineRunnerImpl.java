@@ -1,6 +1,5 @@
 package com.ejercicioJavaEldar.ejercicioJavaEldar;
 
-import com.ejercicioJavaEldar.ejercicioJavaEldar.controllers.Controlador;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.controllers.MarcaController;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.controllers.OperacionController;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.controllers.TarjetaController;
@@ -8,9 +7,6 @@ import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.OperacionDTO;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.TarjetaDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -46,7 +42,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             System.out.println("------------------------------------------");
 
             System.out.println("Item 2");
-            if (operacionController.isOperacionValida(0)){
+            if (operacionController.isOperacionValida(1)){
                 System.out.println("La operacion es valida");
             } else {
                 System.out.println("La operacion NO es valida");
@@ -70,7 +66,7 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
             System.out.println("------------------------------------------");
 
             System.out.println("Item 5");
-            OperacionDTO operacion = operacionController.getOperacionById(0);
+            OperacionDTO operacion = operacionController.getOperacionById(1);
             System.out.println("Operacion "+operacion.getId()+"\n"+
                     "Tasa: "+operacion.getTasa()+"\n"+
                     "Marca: "+operacion.getMarca_tarjeta()+"\n"+
