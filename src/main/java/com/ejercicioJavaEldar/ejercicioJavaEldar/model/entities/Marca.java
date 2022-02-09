@@ -1,8 +1,7 @@
-package com.ejercicioJavaEldar.ejercicioJavaEldar.models;
+package com.ejercicioJavaEldar.ejercicioJavaEldar.model.entities;
 
 import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.MarcaDTO;
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tasa.Tasa;
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tasa.TasaFactory;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.model.Tasa.TasaFactory;
 
 import javax.persistence.*;
 import java.time.LocalDate;

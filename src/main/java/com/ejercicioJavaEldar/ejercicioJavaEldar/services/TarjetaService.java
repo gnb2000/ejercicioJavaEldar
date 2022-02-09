@@ -1,6 +1,6 @@
 package com.ejercicioJavaEldar.ejercicioJavaEldar.services;
 
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tarjeta;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.model.entities.Tarjeta;
 
 public interface TarjetaService {
 

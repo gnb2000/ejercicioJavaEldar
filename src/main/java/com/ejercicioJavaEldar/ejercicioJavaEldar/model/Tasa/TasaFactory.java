@@ -1,4 +1,4 @@
-package com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tasa;
+package com.ejercicioJavaEldar.ejercicioJavaEldar.model.Tasa;
 
 public class TasaFactory {
 

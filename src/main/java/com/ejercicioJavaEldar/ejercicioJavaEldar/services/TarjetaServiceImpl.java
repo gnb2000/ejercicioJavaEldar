@@ -1,7 +1,7 @@
 package com.ejercicioJavaEldar.ejercicioJavaEldar.services;
 
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Marca;
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tarjeta;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.client.UserServiceClient;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.model.entities.Tarjeta;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.repo.TarjetaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +14,16 @@ public class TarjetaServiceImpl implements TarjetaService{
     @Autowired
     private TarjetaRepository tarjetaRepository;
 
+    @Autowired
+    private UserServiceClient userService;
+
     @Override
     public void save(Tarjeta t) {
+        if (userService.existeUsuarioByCardHolder(t.getCardHolder())){
+            System.out.println("TRUE");
+        } else {
+            System.out.println("FALSE");
+        }
         tarjetaRepository.save(t);
     }
 

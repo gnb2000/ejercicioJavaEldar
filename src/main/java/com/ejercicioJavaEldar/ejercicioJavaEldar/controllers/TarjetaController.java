@@ -1,18 +1,17 @@
 package com.ejercicioJavaEldar.ejercicioJavaEldar.controllers;
 
 import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.TarjetaDTO;
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Marca;
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tarjeta;
-import com.ejercicioJavaEldar.ejercicioJavaEldar.repo.MarcaRepository;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.model.entities.Marca;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.model.entities.Tarjeta;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.services.MarcaService;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.services.TarjetaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
 @RestController
+@RequestMapping("/tarjetas")
 public class TarjetaController {
 
     @Autowired
@@ -20,6 +19,14 @@ public class TarjetaController {
 
     @Autowired
     private MarcaService marcaService;
+
+
+    @PostMapping
+    public void crearTarjetaREST(@RequestBody TarjetaDTO t) throws Exception {
+        Marca marca = marcaService.getMarcaById(t.getMarca_id());
+        Tarjeta tarjeta = new Tarjeta(marca,t.getNroTarjeta(),t.getCardHolder(),t.getFechaVenc());
+        tarjetaService.save(tarjeta);
+    }
 
     public void crearTarjeta(int marca_id,int nroTarjeta,String cardHolder, LocalDate fechaVenc) throws Exception {
         Marca marca = marcaService.getMarcaById(marca_id);

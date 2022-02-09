@@ -1,8 +1,8 @@
 package com.ejercicioJavaEldar.ejercicioJavaEldar.controllers;
 
 import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.OperacionDTO;
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Operacion;
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tarjeta;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.model.entities.Operacion;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.model.entities.Tarjeta;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.services.OperacionService;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.services.TarjetaService;
 import org.springframework.beans.factory.annotation.Autowired;

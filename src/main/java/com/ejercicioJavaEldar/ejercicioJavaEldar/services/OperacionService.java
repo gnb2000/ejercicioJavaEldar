@@ -1,6 +1,6 @@
 package com.ejercicioJavaEldar.ejercicioJavaEldar.services;
 
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Operacion;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.model.entities.Operacion;
 
 public interface OperacionService {
 

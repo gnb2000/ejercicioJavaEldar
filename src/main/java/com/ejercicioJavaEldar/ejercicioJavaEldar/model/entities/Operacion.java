@@ -1,4 +1,4 @@
-package com.ejercicioJavaEldar.ejercicioJavaEldar.models;
+package com.ejercicioJavaEldar.ejercicioJavaEldar.model.entities;
 
 import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.OperacionDTO;
 

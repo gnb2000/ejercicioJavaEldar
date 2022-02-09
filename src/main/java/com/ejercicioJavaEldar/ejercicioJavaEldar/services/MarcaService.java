@@ -1,6 +1,6 @@
 package com.ejercicioJavaEldar.ejercicioJavaEldar.services;
 
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Marca;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.model.entities.Marca;
 
 public interface MarcaService {
 

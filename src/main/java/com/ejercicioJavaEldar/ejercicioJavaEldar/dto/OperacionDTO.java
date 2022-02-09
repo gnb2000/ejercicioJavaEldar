@@ -1,7 +1,5 @@
 package com.ejercicioJavaEldar.ejercicioJavaEldar.dto;
 
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tarjeta;
-
 import java.time.LocalDate;
 
 public class OperacionDTO {

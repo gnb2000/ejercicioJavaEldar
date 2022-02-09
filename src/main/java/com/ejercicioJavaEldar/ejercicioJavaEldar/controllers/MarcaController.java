@@ -1,8 +1,8 @@
 package com.ejercicioJavaEldar.ejercicioJavaEldar.controllers;
 
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Marca;
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tasa.Tasa;
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Tasa.TasaFactory;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.model.entities.Marca;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.model.Tasa.Tasa;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.model.Tasa.TasaFactory;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.services.MarcaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,7 +1,6 @@
 package com.ejercicioJavaEldar.ejercicioJavaEldar.services;
 
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Marca;
-import com.ejercicioJavaEldar.ejercicioJavaEldar.models.Operacion;
+import com.ejercicioJavaEldar.ejercicioJavaEldar.model.entities.Operacion;
 import com.ejercicioJavaEldar.ejercicioJavaEldar.repo.OperacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
