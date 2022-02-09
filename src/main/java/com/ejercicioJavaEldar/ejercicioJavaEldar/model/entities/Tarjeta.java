@@ -1,4 +1,4 @@
-package com.ejercicioJavaEldar.ejercicioJavaEldar.models;
+package com.ejercicioJavaEldar.ejercicioJavaEldar.model.entities;
 
 import com.ejercicioJavaEldar.ejercicioJavaEldar.dto.TarjetaDTO;
 
@@ -75,7 +75,7 @@ public class Tarjeta {
     }
 
     public TarjetaDTO toDTO(){
-        return new TarjetaDTO(this.marca.getNombre(),this.nroTarjeta,this.cardHolder,this.fechaVenc);
+        return new TarjetaDTO(this.marca.getNombre(),this.getMarca().getId(),this.nroTarjeta,this.cardHolder,this.fechaVenc);
     }
 
     public boolean isValida(){
